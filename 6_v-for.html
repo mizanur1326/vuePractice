@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+    <style>
+        img{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="y in pests">{{y}}</li>
+        </ul>
+
+        <div v-for="i in pestimg">
+            <img v-bind:src="i" alt="">
+            <figure v-for="z in pestcaption">{{y.name}}
+                <!-- <img v-bind:src="" alt=""> -->
+            </figure>
+        </div>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    pests: ['ant', 'bedbug', 'flies', 'mosquito'],
+                    pestimg: ['image/ant.jpg', 'image/bedbug.jpg', 'image/flies.jpg', 'image/mosquito.jpg'],
+                    pestcaption: [
+                        
+                    ]
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>
