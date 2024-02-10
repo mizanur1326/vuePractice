@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+        <!-- <button v-on:click="hello">Click</button> -->
+        Enter Your Name: <input type="text" v-on:input="nameEntry">
+        <br>
+        Your Name : {{name}} <br>
+        Enter Your Email: <input type="text" v-on:input="emailEntry">
+        <br>
+        Your Email : {{email}}
+
+        <br>
+
+        <p>{{ "Moose count: " + count }}</p>
+        <button v-on:click="addMoose(+1)">+1</button>
+        <button v-on:click="addMoose(+5)">+5</button>
+        <button v-on:click="addMoose(-1)">-1</button>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    msg: '',
+                    name: '',
+                    email: '',
+                    count: 0,
+                }
+            },
+            methods: {
+                hello() {
+                    this.msg = 'Hello ! Hello'
+                },
+                nameEntry(e) {
+                    this.name = e.target.value
+                },
+                emailEntry(e) {
+                    this.email = e.target.value
+                },
+                addMoose(number) {
+                    this.count = this.count + number
+                }
+
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
